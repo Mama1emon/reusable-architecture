@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "CleanArchitectureActivity"
+include ':app'
+include ':domain:credit'
+include ':feature:card:api'
+include ':feature:card:impl'
+include ':feature:profile:api'
+include ':feature:profile:impl'
+include ':core:navigation'
