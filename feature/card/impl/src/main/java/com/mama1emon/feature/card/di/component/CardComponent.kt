@@ -4,10 +4,10 @@ import dagger.hilt.DefineComponent
 import dagger.hilt.android.components.ViewModelComponent
 
 @DefineComponent(parent = ViewModelComponent::class)
-interface CardDomainComponent {
+interface CardComponent {
 
     @DefineComponent.Builder
     interface Builder {
-        fun build(): CardDomainComponent
+        fun build(): CardComponent
     }
 }

@@ -14,9 +14,15 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CleanArchitectureActivity"
 include ':app'
+
+include ':core:navigation'
+include ':core:utils'
+
+include ':data:token'
+
 include ':domain:credit'
+
 include ':feature:card:api'
 include ':feature:card:impl'
 include ':feature:profile:api'
 include ':feature:profile:impl'
-include ':core:navigation'

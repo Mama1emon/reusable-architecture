@@ -8,9 +8,9 @@ import javax.inject.Inject
  * @author Andrew Khokhlov on 29/01/2023
  */
 @ViewModelScoped
-class CardDomainComponentProvider @Inject constructor(
-    private val componentBuilder: CardDomainComponent.Builder
-) : CardDomainDependencies by EntryPoints.get(
+class CardDependenciesProvider @Inject constructor(
+    private val componentBuilder: CardComponent.Builder
+) : CardDependencies by EntryPoints.get(
     componentBuilder.build(),
-    CardDomainDependencies::class.java
+    CardDependencies::class.java
 )

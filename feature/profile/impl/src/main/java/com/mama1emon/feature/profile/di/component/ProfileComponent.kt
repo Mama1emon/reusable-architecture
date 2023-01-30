@@ -4,10 +4,10 @@ import dagger.hilt.DefineComponent
 import dagger.hilt.android.components.ViewModelComponent
 
 @DefineComponent(parent = ViewModelComponent::class)
-interface ProfileDomainComponent {
+interface ProfileComponent {
 
     @DefineComponent.Builder
     interface Builder {
-        fun build(): ProfileDomainComponent
+        fun build(): ProfileComponent
     }
 }

@@ -59,4 +59,5 @@ dependencies {
     implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
     implementation(project(":core:navigation"))
     implementation(project(":feature:profile:api"))
+    implementation(project(":data:token"))
 }

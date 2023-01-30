@@ -11,9 +11,9 @@ import javax.inject.Singleton
 /**
  * @author Andrew Khokhlov on 27/01/2023
  */
-@InstallIn(SingletonComponent::class)
 @Module
-internal interface NavigationModule {
+@InstallIn(SingletonComponent::class)
+internal interface ProfileNavigationModule {
 
     @Singleton
     @Binds

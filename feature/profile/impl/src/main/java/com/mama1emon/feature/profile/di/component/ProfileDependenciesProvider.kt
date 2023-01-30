@@ -8,9 +8,9 @@ import javax.inject.Inject
  * @author Andrew Khokhlov on 29/01/2023
  */
 @ViewModelScoped
-class ProfileDomainComponentProvider @Inject constructor(
-    private val componentBuilder: ProfileDomainComponent.Builder
-) : ProfileDomainDependencies by EntryPoints.get(
+class ProfileDependenciesProvider @Inject constructor(
+    private val componentBuilder: ProfileComponent.Builder
+) : ProfileDependencies by EntryPoints.get(
     componentBuilder.build(),
-    ProfileDomainDependencies::class.java
+    ProfileDependencies::class.java
 )

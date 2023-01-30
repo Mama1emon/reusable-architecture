@@ -5,8 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mama1emon.domain.credit.models.Credit
-import com.mama1emon.feature.card.di.component.CardDomainComponentProvider
+import com.mama1emon.feature.card.di.component.CardDependenciesProvider
+import com.mama1emon.feature.card.presentation.states.CardStateHolder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,17 +18,23 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class CardViewModel @Inject constructor(
-    private val componentProvider: CardDomainComponentProvider
+    componentProvider: CardDependenciesProvider
 ) : ViewModel() {
 
-    var uiState by mutableStateOf<Credit?>(null)
+    var uiState by mutableStateOf<CardStateHolder>(CardStateHolder.Loading)
         private set
+
+    private val creditDepositUseCase = componentProvider.creditDepositUseCase
+    private val creditNewUseCase = componentProvider.creditNewUseCase
 
     fun getCreditInfo() {
         viewModelScope.launch(Dispatchers.Main) {
             runCatching {
                 withContext(Dispatchers.IO) {
-                    componentProvider.creditDepositUseCase.getCreditInfo(1)
+                    CardStateHolder.Content(
+                        credit = creditDepositUseCase.getCreditInfo(1),
+                        newCredit = creditNewUseCase.open("1")
+                    )
                 }
             }
                 .onSuccess { uiState = it }
