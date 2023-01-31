@@ -6,7 +6,7 @@ class TokenStore<To>(private val getTokenListConverter: (TokenDTO) -> To) {
 
     suspend fun getTokenList(): List<To> = getTokenListByApi().map(getTokenListConverter)
 
-    suspend fun saveTokenList(): List<TokenDTO> {
+    suspend fun saveTokenList(tokens: List<TokenDTO>) {
         TODO("Not yet implemented")
     }
 

@@ -20,6 +20,7 @@ include ':core:utils'
 
 include ':data:sources'
 include ':data:stores:token'
+include ':data:stores:transaction'
 
 include ':domain:credit'
 
@@ -27,3 +28,5 @@ include ':feature:card:api'
 include ':feature:card:impl'
 include ':feature:profile:api'
 include ':feature:profile:impl'
+
+include ':blockchain-sdk'

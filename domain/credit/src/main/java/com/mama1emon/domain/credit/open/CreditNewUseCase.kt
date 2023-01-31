@@ -5,7 +5,8 @@ import com.mama1emon.domain.credit.models.NewCredit
 class CreditNewUseCase(private val creditNewRepository: CreditNewRepository) {
 
     suspend fun open(tokenId: String): NewCredit {
-        // do something
-        return creditNewRepository.open(tokenId)
+        return creditNewRepository.open(tokenId).copy(
+            fee = creditNewRepository.getFee("ETH")
+        )
     }
 }

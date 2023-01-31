@@ -8,4 +8,6 @@ import com.mama1emon.domain.credit.models.NewCredit
 interface CreditNewRepository {
 
     suspend fun open(tokenId: String): NewCredit
+
+    suspend fun getFee(networkId: String): String
 }

@@ -6,5 +6,6 @@ package com.mama1emon.domain.credit.models
 data class NewCredit(
     val id: String,
     val token: Token,
-    val amount: String
+    val amount: String,
+    val fee: String
 )

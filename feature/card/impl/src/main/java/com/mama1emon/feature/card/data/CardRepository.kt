@@ -1,5 +1,7 @@
 package com.mama1emon.feature.card.data
 
+import com.mama1emon.blockchainsdk.blockchain.Blockchain
+import com.mama1emon.blockchainsdk.transaction.TransactionManagerFactory
 import com.mama1emon.data.sources.TechApi
 import com.mama1emon.data.sources.models.CreditDTO
 import com.mama1emon.data.token.TokenStore
@@ -14,6 +16,7 @@ import com.mama1emon.domain.credit.open.CreditNewRepository
  */
 class CardRepository(
     private val techApi: TechApi,
+    private val transactionManagerFactory: TransactionManagerFactory,
     private val tokenStore: TokenStore<Token>
 ) : CreditDepositRepository, CreditNewRepository {
 
@@ -42,7 +45,12 @@ class CardRepository(
         return NewCredit(
             id = "1",
             token = requireNotNull(token),
-            amount = "100"
+            amount = "100",
+            fee = "unknown"
         )
+    }
+
+    override suspend fun getFee(networkId: String): String {
+        return transactionManagerFactory.getFee(Blockchain.Ethereum)
     }
 }
