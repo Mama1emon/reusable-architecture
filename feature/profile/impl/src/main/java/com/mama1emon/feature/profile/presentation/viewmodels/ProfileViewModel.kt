@@ -29,7 +29,7 @@ class ProfileViewModel @Inject constructor(
             runCatching {
                 withContext(Dispatchers.IO) {
                     ProfileStateHolder.Content(
-                        credit = profileDependenciesProvider.creditDepositUseCase.getCreditInfo(1),
+                        credit = profileDependenciesProvider.creditDepositUseCase.getCreditInfo("1"),
                         tokens = profileDependenciesProvider.profileRepository.getTokenList()
                     )
                 }

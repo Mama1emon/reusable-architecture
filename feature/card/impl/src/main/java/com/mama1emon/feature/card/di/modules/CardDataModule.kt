@@ -1,5 +1,6 @@
 package com.mama1emon.feature.card.di.modules
 
+import com.mama1emon.data.sources.TechApi
 import com.mama1emon.data.token.TokenStore
 import com.mama1emon.domain.credit.models.Token
 import com.mama1emon.feature.card.data.CardRepository
@@ -16,8 +17,9 @@ import dagger.hilt.InstallIn
 object CardDataModule {
 
     @Provides
-    fun provideCardRepository(): CardRepository {
+    fun provideCardRepository(techApi: TechApi): CardRepository {
         return CardRepository(
+            techApi = techApi,
             tokenStore = TokenStore(
                 getTokenListConverter = { model ->
                     Token(id = model.id, name = model.name)

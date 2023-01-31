@@ -1,5 +1,6 @@
 package com.mama1emon.feature.profile.di.modules
 
+import com.mama1emon.data.sources.TechApi
 import com.mama1emon.data.token.TokenStore
 import com.mama1emon.feature.profile.data.ProfileRepository
 import com.mama1emon.feature.profile.di.component.ProfileComponent
@@ -16,8 +17,9 @@ import dagger.hilt.InstallIn
 object ProfileDataModule {
 
     @Provides
-    fun provideProfileRepository(): ProfileRepository {
+    fun provideProfileRepository(techApi: TechApi): ProfileRepository {
         return ProfileRepository(
+            techApi = techApi,
             tokenStore = TokenStore(
                 getTokenListConverter = GetTokenListConverter::map
             )

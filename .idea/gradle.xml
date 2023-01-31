@@ -15,7 +15,9 @@
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/core/utils" />
             <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/data/token" />
+            <option value="$PROJECT_DIR$/data/sources" />
+            <option value="$PROJECT_DIR$/data/stores" />
+            <option value="$PROJECT_DIR$/data/stores/token" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/credit" />
             <option value="$PROJECT_DIR$/feature" />

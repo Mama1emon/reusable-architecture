@@ -32,7 +32,7 @@ class CardViewModel @Inject constructor(
             runCatching {
                 withContext(Dispatchers.IO) {
                     CardStateHolder.Content(
-                        credit = creditDepositUseCase.getCreditInfo(1),
+                        credit = creditDepositUseCase.getCreditInfo("1"),
                         newCredit = creditNewUseCase.open("1")
                     )
                 }

@@ -7,7 +7,7 @@ import com.mama1emon.domain.credit.models.Credit
  */
 interface CreditDepositRepository {
 
-    suspend fun getCredit(id: Int): Credit
+    suspend fun getCredit(id: String): Credit
 
     suspend fun saveCredit(credit: Credit)
 }
